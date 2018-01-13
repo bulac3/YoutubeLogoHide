@@ -1,23 +1,36 @@
 {
   "manifest_version": 2,
-  "name": "Youtube_small_window",
-  "version": "2.1",
-  "permissions": [ "tabs", "storage", "<all_urls>"],
+  "name": "Youtube Small Window",
+  "version": "2.1.1",
+  "permissions": [
+    "tabs",
+    "storage",
+    "<all_urls>"
+  ],
   "content_scripts": [
     {
-      "matches": [ "*://*.youtube.com/*" ],
-      "js": [ "content_scripts/content_script.js" ] //,
-      //"css": [ "content_scripts/traps.css" ]
+      "matches": [
+        "*://*.youtube.com/*"
+      ],
+      "js": [
+        "content_scripts/content_script.js"
+      ]
     }
   ],
-  "externally_connectable": {
-    "matches": [ "*://*.youtube.com/*" ]
-  },
   "browser_action": {
-    "default_icon": {
-      "64": "images/play_96.png"
-    },
-    "default_title": "Youtube small window",
+    "default_icon": "images/play_96.png",
+    "default_title": "Youtube Small Window",
     "default_popup": "popup/popup.html"
+  },
+  "externally_connectable" : {
+    "matches": [
+      "*://*.youtube.com/*"
+    ]
+  },
+  "background": {
+    "scripts": [
+      "js/background.js"
+    ],
+    "persistent": false
   }
 }
