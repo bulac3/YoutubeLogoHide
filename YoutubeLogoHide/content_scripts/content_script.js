@@ -73,6 +73,9 @@ function openNew(parameters, sender, sendResponse) {
     var url = window.location;
     loadSettings(function (settings) {
         var myWindow = window.open(url, '_blank', `resizable=yes, scrollbars=yes, titlebar=yes,width=${settings.width}, height=${settings.height}, left=${settings.positionX}, top=${settings.positionY},alwaysRaised`);
+        var videoUrl = url.search.split("?v=")[1];
+        myWindow.document.write(`<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${videoUrl}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`);
+        myWindow.document.body.style.margin = 0;
         myWindow.focus();
     });
 }
